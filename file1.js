@@ -43,10 +43,10 @@ import fs from 'fs';
 //     console.log('file renamed');
 // })
 
-// if(fs.existsSync('file1.txt')){
-//     console.log('file exists');
-// }else{
-//     console.log('file not exists');
-// }
+if(fs.existsSync('file1.txt')){
+    console.log('file exists');
+}else{
+    console.log('file not exists');
+}
 
 
