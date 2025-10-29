@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs, { read } from 'fs';
 
 // fs.readFile('file.txt','utf-8',(err, data) => {
 //     if(err){
@@ -43,10 +43,20 @@ import fs from 'fs';
 //     console.log('file renamed');
 // })
 
-if(fs.existsSync('file1.txt')){
-    console.log('file exists');
-}else{
-    console.log('file not exists');
-}
+// if(fs.existsSync('file1.txt')){
+//     console.log('file exists');
+// }else{
+//     console.log('file not exists');
+// }
+
+const readStream = fs.createReadStream('data.txt', 'utf-8');
+
+readStream.on('data', chunk => {
+    console.log(chunk);
+})
+
+readStream.on('end', () => {
+    console.log('finished reading file')
+})
 
 
