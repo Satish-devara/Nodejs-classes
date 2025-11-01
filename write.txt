@@ -1,0 +1,3 @@
+hi
+practiing the Nodejs write stream 
+it;s fun to learn

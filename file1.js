@@ -1,4 +1,5 @@
-import fs, { read } from 'fs';
+import fs, { read, readlink } from 'fs';
+import readLine  from 'readline/promises';
 
 // fs.readFile('file.txt','utf-8',(err, data) => {
 //     if(err){
@@ -51,12 +52,43 @@ import fs, { read } from 'fs';
 
 const readStream = fs.createReadStream('data.txt', 'utf-8');
 
-readStream.on('data', chunk => {
-    console.log(chunk);
+// readStream.on('data', chunk => {
+//     console.log(chunk);
+// })
+
+// readStream.on('end', () => {
+//     console.log('finished reading file')
+// })
+
+
+const writeStream = fs.createWriteStream('write.txt', {encoding:'utf-8'});
+
+
+writeStream.on('finish', () => {
+    console.log('finised to write');
 })
 
-readStream.on('end', () => {
-    console.log('finished reading file')
+const rl = readLine.createInterface({
+    input:process.stdin,
+    output: process.stdout,
+    prompt:'enter line'
 })
 
+rl.prompt();
+
+rl.on('line', (line) => {
+    if(line.trim().toLowerCase() === 'end'){
+        rl.close()
+    }else{
+        writeStream.write(line + '\n');
+        rl.prompt();
+    }
+});
+
+rl.on('close', () => {
+    writeStream.end();
+})
+
+
+// readStream.pipe(writeStream);
 
