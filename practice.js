@@ -28,20 +28,31 @@
 // eventEmiter.emit('practice')
 
 
-function fileDownloading(){
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve('fileDownloaded');
-        },5000);
-    });
-};
+// function fileDownloading(){
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve('fileDownloaded');
+//         },5000);
+//     });
+// };
 
 
-async function startDownload() {
-    console.log('file downloading');
-    let download = await fileDownloading();
-    console.log(download);
-    console.log('download complete');
-}
+// async function startDownload() {
+//     console.log('file downloading');
+//     let download = await fileDownloading();
+//     console.log(download);
+//     console.log('download complete');
+// }
 
-startDownload();
+// startDownload();
+
+
+//tasks have to complete 
+//create server that uses the get method and display welcome message
+//show user information by using get method(name, age)
+//create html form with input by using post method
+//add two numbers use the post method
+//create a page by usng the get and post method
+//create an express app that take username. and age
+//create an expressapp that accepts a post request
+//create a get route/product that accepts the product details via query parameters
